@@ -1,0 +1,21 @@
+{
+  "recommendations": [
+    "editorconfig.editorconfig",
+    "ms-dotnettools.csharp",
+    "ms-dotnettools.csdevkit",
+    "adrianwilczynski.namespace",
+    "ms-dotnettools.vscodeintellicode-csharp",
+    "formulahendry.dotnet-test-explorer",
+    "patcx.vscode-nuget-gallery",
+    "jmrog.vscode-nuget-package-manager",
+    "streetsidesoftware.code-spell-checker",
+    "tintoy.msbuild-project-tools",
+    "leodevbro.blockman",
+    "mhutchie.git-graph",
+    "codezombiech.gitignore",
+    "eamodio.gitlens",
+    "davidanson.vscode-markdownlint",
+    "quicktype.quicktype",
+    "christian-kohler.path-intellisense"
+  ]
+}
