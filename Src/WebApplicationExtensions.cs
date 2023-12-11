@@ -1,7 +1,3 @@
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.IdentityModel.Tokens;
-
 using RichillCapital.Studio.Web.Components;
 
 namespace RichillCapital.Studio.Web;
@@ -14,47 +10,6 @@ public static class WebApplicationExtensions
             .AddRazorComponents()
             .AddInteractiveServerComponents()
             .AddInteractiveWebAssemblyComponents();
-
-        builder.Services
-            .AddAuthentication(options =>
-            {
-                options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-                options.DefaultChallengeScheme = "oidc";
-            })
-            .AddCookie(options =>
-            {
-                options.Cookie.Name = "9999";
-            })
-            .AddOpenIdConnect("oidc", options =>
-            {
-                options.Authority = "http://localhost:10000";
-                options.RequireHttpsMetadata = false;
-
-                options.ClientId = "9999";
-                options.ClientSecret = "secret";
-
-                // code flow + PKCE (PKCE is turned on by default)
-                options.ResponseType = "code";
-                options.UsePkce = true;
-
-                options.Scope.Clear();
-                options.Scope.Add("openid");
-                options.Scope.Add("email");
-                options.Scope.Add("offline_access");
-
-                // not mapped by default
-                options.ClaimActions.MapJsonKey("picture", "picture");
-
-                // keeps id_token smaller
-                options.GetClaimsFromUserInfoEndpoint = true;
-                options.SaveTokens = true;
-
-                options.TokenValidationParameters = new TokenValidationParameters
-                {
-                    NameClaimType = "name",
-                    RoleClaimType = "role",
-                };
-            });
 
         return builder;
     }
@@ -84,8 +39,7 @@ public static class WebApplicationExtensions
 
         app.MapRazorComponents<App>()
             .AddInteractiveServerRenderMode()
-            .AddInteractiveWebAssemblyRenderMode()
-            .RequireAuthorization();
+            .AddInteractiveWebAssemblyRenderMode();
 
         return app;
     }
