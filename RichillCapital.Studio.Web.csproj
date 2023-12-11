@@ -1,25 +1,27 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
-  <Import Project="./Solution.Build.props"/>
+  <Import Project="./Solution.Build.props" />
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <CodeAnalysisRuleSet/>
+    <CodeAnalysisRuleSet />
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <CodeAnalysisRuleSet/>
+    <CodeAnalysisRuleSet />
   </PropertyGroup>
   
   <ItemGroup>
-    <None Remove=".gitignore"/>
-    <None Remove="LICENSE"/>
-    <None Remove="README.md"/>
-    <None Remove="Soluation.ruleset"/>
-    <None Remove="Solution.Build.props"/>
-    <None Remove="Solution.Tests.props"/>
+    <None Remove=".gitignore" />
+    <None Remove="Dockerfile" />
+    <None Remove="LICENSE" />
+    <None Remove="README.md" />
+    <None Remove="Soluation.ruleset" />
+    <None Remove="Solution.Build.props" />
+    <None Remove="Solution.ruleset" />
+    <None Remove="Solution.Tests.props" />
   </ItemGroup>
   
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.0"/>
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="8.0.0"/>
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="8.0.0" />
   </ItemGroup>
 </Project>
